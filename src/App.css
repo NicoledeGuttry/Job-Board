@@ -167,6 +167,15 @@
   .job-card-header {
     flex-direction: column;
   }
+
+  .filter-container {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.filter-container select {
+  width: 100%;
+}
 }
 
 .search-container {
@@ -186,4 +195,23 @@
 .search-container input:focus {
   border-color: #111827;
   box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.filter-container label {
+  font-weight: 600;
+}
+
+.filter-container select {
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
 }

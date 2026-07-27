@@ -5,16 +5,25 @@ import JobCard from './components/JobCard'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedTechnology, setSelectedTechnology] = useState('All')
+  const technologies = [
+  'All',
+  ...new Set(jobs.flatMap((job) => job.technologies)),
+]
   const filteredJobs = jobs.filter((job) => {
   const search = searchTerm.toLowerCase()
-   return (
-      job.title.toLowerCase().includes(search) ||
-      job.company.toLowerCase().includes(search) ||
-      job.technologies.some((technology) =>
-        technology.toLowerCase().includes(search)
-      )
+  const matchesSearch =
+    job.title.toLowerCase().includes(search) ||
+    job.company.toLowerCase().includes(search) ||
+    job.technologies.some((technology) =>
+      technology.toLowerCase().includes(search)
     )
-  })
+  const matchesTechnology =
+    selectedTechnology === 'All' ||
+    job.technologies.includes(selectedTechnology)
+
+  return matchesSearch && matchesTechnology
+})
 
   return (
     <div className="app">
@@ -43,6 +52,26 @@ function App() {
                onChange={(event) => setSearchTerm(event.target.value)}
              />
           </div>
+
+          <div className="filter-container">
+              <label htmlFor="technology-filter">
+               Filtra per tecnologia
+             </label>
+
+                <select
+                  id="technology-filter"
+                  value={selectedTechnology}
+                  onChange={(event) => setSelectedTechnology(event.target.value)}
+                >
+                  {technologies.map((technology) => (
+                  <option key={technology} value={technology}>
+                   {technology === 'All'
+                   ? 'Tutte le tecnologie'
+                   : technology}
+                 </option>
+                ))}
+                </select>
+           </div>
 
           <div className="jobs-grid">
             {filteredJobs.map((job) => (
