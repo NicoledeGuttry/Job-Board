@@ -1,5 +1,6 @@
 import './App.css'
 import jobs from './data/jobs'
+import JobCard from './components/JobCard'
 
 function App() {
   return (
@@ -9,12 +10,7 @@ function App() {
 
       <div>
         {jobs.map((job) => (
-          <article key={job.id}>
-            <h2>{job.title}</h2>
-            <p>{job.company}</p>
-            <p>{job.location}</p>
-            <p>{job.type}</p>
-          </article>
+          <JobCard key={job.id} job={job} />
         ))}
       </div>
     </div>
