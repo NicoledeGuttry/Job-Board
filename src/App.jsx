@@ -74,9 +74,15 @@ function App() {
            </div>
 
           <div className="jobs-grid">
-            {filteredJobs.map((job) => (
+             {filteredJobs.length > 0 ? (
+             filteredJobs.map((job) => (
               <JobCard key={job.id} job={job} />
-            ))}
+            ))
+            ) : (
+            <p className="no-results">
+             Nessuna offerta trovata
+            </p>
+            )}
           </div>
         </section>
       </main>

@@ -215,3 +215,11 @@
   background: white;
   cursor: pointer;
 }
+
+.no-results {
+  grid-column: 1 / -1;
+  padding: 48px 24px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
