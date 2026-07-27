@@ -168,3 +168,22 @@
     flex-direction: column;
   }
 }
+
+.search-container {
+  margin-bottom: 32px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-container input:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
+}
