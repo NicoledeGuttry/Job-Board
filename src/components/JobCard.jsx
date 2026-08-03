@@ -19,7 +19,7 @@ function JobCard({ job }) {
       </div>
 
       <div className="technologies">
-        {job.techSkills.map((technology) => (
+       {job.technologies.map((technology) => (
           <span
             className="technology-tag"
             key={technology}
