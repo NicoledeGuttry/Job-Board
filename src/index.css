@@ -1,16 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  font-family: Arial, sans-serif;
-  background: #f9fafb;
-  color: #111827;
-}
-
-button,
-input {
-  font: inherit;
-}
+@import './styles/variables.css';
+@import './styles/base.css';
+@import './styles/layout.css';
+@import './styles/components.css';

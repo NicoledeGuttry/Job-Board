@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom'
 import jobs from '../data/jobs'
+import InfoCard from '../components/InfoCard'
+import JobInfo from '../components/JobInfo'
 
 function JobDetails() {
   const { id } = useParams()
@@ -9,40 +11,104 @@ function JobDetails() {
   if (!job) {
     return <p>Offerta non trovata</p>
   }
-return (
-  <main className="container">
-    <section className="job-details">
-      <h1>{job.title}</h1>
+  const {
+    title,
+    company,
+    location,
+    salary,
+    contract,
+    experience,
+    workMode,
+    technologies,
+    description,
+    requirements,
+    responsibilities,
+    benefits,
+  } = job
 
-      <h2>{job.company.name}</h2>
+  const formattedSalary = `€${salary.min.toLocaleString('it-IT')} - €${salary.max.toLocaleString('it-IT')}`
 
-      <p>
-        {job.location.city}, {job.location.region}
-      </p>
+  return (
+    <main className="container">
+      <section className="job-details">
+        <h1>{title}</h1>
 
-      <p>{job.contract.type}</p>
+        <h2>{company.name}</h2>
 
-      <p>{job.workMode}</p>
+        <div className="job-info-grid">
+          <JobInfo
+            label="Località"
+            value={`${location.city}, ${location.region}`}
+          />
 
-      <p>{job.experience}</p>
+          <JobInfo
+            label="Contratto"
+            value={contract.type}
+          />
 
-      <p>
-         €{job.salary.min.toLocaleString('it-IT')} - €
-        {job.salary.max.toLocaleString('it-IT')}
-      </p>
+          <JobInfo
+            label="Modalità"
+            value={workMode}
+          />
 
-      <h2>Stack Tecnologico</h2>
+          <JobInfo
+            label="Esperienza"
+            value={experience}
+          />
 
-      <div className="technologies">
-        {job.technologies.map((technology) => (
-          <span className="technology-tag" key={technology}>
-            {technology}
-          </span>
-        ))}
-      </div>
-    </section>
-  </main>
-)
+          <JobInfo
+            label="RAL"
+            value={formattedSalary}
+          />
+        </div>
+
+        <InfoCard title="Stack Tecnologico">
+          <div className="technologies">
+            {technologies.map((technology) => (
+              <span
+                className="technology-tag"
+                key={technology}
+              >
+                {technology}
+              </span>
+            ))}
+          </div>
+        </InfoCard>
+
+        <InfoCard title="Descrizione">
+          <p>{description}</p>
+        </InfoCard>
+        <InfoCard title="Requisiti tecnici">
+          <ul>
+            {requirements.technical.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </InfoCard>
+        <InfoCard title="Soft Skills">
+          <ul>
+            {requirements.soft.map((skill) => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </InfoCard>
+        <InfoCard title="Benefit">
+          <ul>
+            {benefits.map((benefit) => (
+              <li key={benefit}>{benefit}</li>
+            ))}
+          </ul>
+        </InfoCard>
+      </section>
+    </main>
+  )
 }
 
 export default JobDetails
+
+
+
+
+
+
+

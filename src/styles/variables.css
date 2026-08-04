@@ -1,0 +1,58 @@
+:root {
+    /*Palette*/
+
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+
+    --color-text: #0f172a;
+    --color-text-secondary: #64748b;
+
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+
+    --color-border: #e2e8f0;
+
+    /*Typography*/
+
+    --font-family: 'Inter Variable', sans-serif;
+
+    /*Border Radius*/
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+
+    /*Spacing*/
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+
+    /*Shadow*/
+
+    --shadow-sm:
+        0 1px 3px rgba(15, 23, 42, 0.08);
+
+    --shadow-md:
+        0 8px 20px rgba(15, 23, 42, 0.08);
+
+    /*Font Sizes*/
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+
+    /*Font Weight*/
+
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+}
