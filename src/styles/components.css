@@ -1,1 +1,94 @@
-/* Components */
+.job-details-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.job-details-header h1 {
+  margin: 0;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+.job-details-header h2 {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-secondary);
+}
+
+.company-industry {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.info-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-card p {
+  line-height: 1.7;
+}
+
+.info-card h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+}
+
+.job-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.job-info-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  margin-bottom: var(--space-sm);
+
+  color: var(--color-text-secondary);
+}
+
+.job-info-header svg {
+  color: var(--color-primary);
+
+  flex-shrink: 0;
+} 
+
+.job-info {
+  padding: var(--space-md);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.job-info-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+}
+
+.job-info-value {
+  display: block;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .job-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,9 +1,17 @@
-function JobInfo({ label, value }) {
+function JobInfo({ icon, label, value }) {
   return (
     <div className="job-info">
-      <p className="job-info-label">{label}</p>
+      <div className="job-info-header">
+        {icon}
 
-      <p className="job-info-value">{value}</p>
+        <span className="job-info-label">
+          {label}
+        </span>
+      </div>
+
+      <span className="job-info-value">
+        {value}
+      </span>
     </div>
   )
 }

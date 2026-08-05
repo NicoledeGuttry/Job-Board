@@ -2,6 +2,13 @@ import { useParams } from 'react-router-dom'
 import jobs from '../data/jobs'
 import InfoCard from '../components/InfoCard'
 import JobInfo from '../components/JobInfo'
+import {
+  Briefcase,
+  Building2,
+  GraduationCap,
+  Wallet,
+} from 'lucide-react'
+
 
 function JobDetails() {
   const { id } = useParams()
@@ -22,7 +29,6 @@ function JobDetails() {
     technologies,
     description,
     requirements,
-    responsibilities,
     benefits,
   } = job
 
@@ -31,36 +37,59 @@ function JobDetails() {
   return (
     <main className="container">
       <section className="job-details">
-        <h1>{title}</h1>
 
-        <h2>{company.name}</h2>
+        <header className="job-details-header">
+          <div>
+            <h1>{title}</h1>
 
-        <div className="job-info-grid">
-          <JobInfo
-            label="Località"
-            value={`${location.city}, ${location.region}`}
-          />
+            <h2>{company.name}</h2>
 
-          <JobInfo
-            label="Contratto"
-            value={contract.type}
-          />
+            <p className="company-meta">
+              {company.industry} • {company.employees.min}-{company.employees.max} dipendenti
+            </p>
 
-          <JobInfo
-            label="Modalità"
-            value={workMode}
-          />
+            <p className="job-location">
+              {location.city}, {location.region}
+            </p>
 
-          <JobInfo
-            label="Esperienza"
-            value={experience}
-          />
+          </div>
+        </header>
 
-          <JobInfo
-            label="RAL"
-            value={formattedSalary}
-          />
-        </div>
+
+        <InfoCard title="Informazioni principali">
+
+          <div className="job-info-grid">
+
+            <JobInfo
+              icon={<Briefcase size={18} />}
+              label="Contratto"
+              value={contract.type}
+            />
+
+            <JobInfo
+              icon={<Building2 size={18} />}
+              label="Modalità"
+              value={workMode}
+            />
+
+            <JobInfo
+              icon={<GraduationCap size={18} />}
+              label="Esperienza"
+              value={experience}
+            />
+
+            <JobInfo
+              icon={<Wallet size={18} />}
+              label="RAL"
+              value={formattedSalary}
+            />
+
+          </div>
+
+        </InfoCard>
+
+
+
 
         <InfoCard title="Stack Tecnologico">
           <div className="technologies">
