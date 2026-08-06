@@ -1,9 +1,27 @@
 .container {
   width: 100%;
   max-width: 1200px;
-
   margin: 0 auto;
-
   padding-left: var(--space-lg);
   padding-right: var(--space-lg);
+}
+
+.job-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.job-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.job-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
