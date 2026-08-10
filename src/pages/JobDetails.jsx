@@ -3,6 +3,7 @@ import jobs from '../data/jobs'
 import JobHeader from '../components/JobHeader'
 import JobSummary from '../components/JobSummary'
 import JobContent from '../components/JobContent'
+import Navbar from '../components/Navbar'
 import {
   Briefcase,
   Building2,
@@ -13,8 +14,9 @@ import {
 function JobDetails() {
   const { id } = useParams()
   const job = jobs.find((job) => job.id === Number(id))
+
   if (!job) {
-    return <p>Offerta non trovata</p>
+    return <div>Offerta non trovata</div>
   }
 
   const {
@@ -33,16 +35,17 @@ function JobDetails() {
   } = job
 
   return (
-    <main className="container">
-      <section className="job-details">
-        <JobHeader
-          title={title}
-          company={company}
-          location={location}
-        />
-        <div className="job-layout">
+    <>
+      <main className="container">
+        <section className="job-details">
 
-          <aside className="job-summary">
+          <JobHeader
+            title={title}
+            company={company}
+            location={location}
+          />
+
+          <div className="job-details-grid">
             <JobSummary
               contract={contract}
               workMode={workMode}
@@ -51,26 +54,18 @@ function JobDetails() {
               technologies={technologies}
               benefits={benefits}
             />
-          </aside>
-
-          <section className="job-content">
             <JobContent
               description={description}
               responsibilities={responsibilities}
               requirements={requirements}
             />
-          </section>
-        </div>
-      </section>
-    </main>
+          </div>
+
+        </section>
+      </main>
+    </>
   )
 }
 
 export default JobDetails
-
-
-
-
-
-
 

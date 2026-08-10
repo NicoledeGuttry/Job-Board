@@ -1,12 +1,17 @@
 .job-details-header {
-  margin-bottom: var(--space-2xl);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .job-details-header h1 {
   margin: 0;
-  font-size: var(--text-3xl);
+  max-width: 800px;
+  font-size: 2.5rem;
   font-weight: var(--font-bold);
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .job-details-header h2 {
@@ -15,6 +20,39 @@
   font-size: var(--text-xl);
   font-weight: var(--font-semibold);
   color: var(--color-text-secondary);
+}
+
+.job-details-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+}
+
+.job-details-heading {
+  max-width: 800px;
+}
+
+.job-eyebrow {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.job-details-hero-accent {
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.08;
+}
+
+.job-details-heading {
+  max-width: 850px;
 }
 
 .company-industry {
@@ -45,7 +83,7 @@
 
 .job-info-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
 }
 
@@ -53,17 +91,27 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-
   margin-bottom: var(--space-sm);
-
   color: var(--color-text-secondary);
 }
 
 .job-info-header svg {
   color: var(--color-primary);
-
   flex-shrink: 0;
 } 
+
+.job-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .job-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .job-info {
   padding: var(--space-md);
@@ -91,4 +139,32 @@
   .job-info-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.company-meta {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.job-location {
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--space-2xl);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--color-text-primary);
 }

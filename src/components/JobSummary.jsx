@@ -1,3 +1,4 @@
+
 import InfoCard from './InfoCard'
 import JobInfo from './JobInfo'
 
@@ -15,11 +16,11 @@ function JobSummary({
 
   return (
     <>
-      <InfoCard title="Informazioni principali">
+      <InfoCard title="Informazioni">
         <div className="job-info-grid">
           <JobInfo
             label="Contratto"
-            value={contract.type}
+            value={`${contract.type} - ${contract.duration}`}
           />
 
           <JobInfo
@@ -64,3 +65,4 @@ function JobSummary({
 }
 
 export default JobSummary
+

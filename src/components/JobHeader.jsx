@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function JobHeader({
   title,
   company,
@@ -6,17 +8,31 @@ function JobHeader({
   return (
     <header className="job-details-header">
 
-      <div>
-        <h1>{title}</h1>
-        <h2>{company.name}</h2>
-        <p className="company-meta">
-          {company.industry} • {company.employees.min}-{company.employees.max} dipendenti
-        </p>
-        <p className="job-location">
-          {location.city}, {location.region}
-        </p>
-      </div>
+      <Link
+        to="/"
+        className="back-link"
+      >
+        ← Tutte le offerte
+      </Link>
 
+      <div className="job-details-hero">
+        <div className="job-details-heading">
+          <p className="job-eyebrow">
+            Opportunità di lavoro
+          </p>
+
+          <h1>{title}</h1>
+          <h2>{company.name}</h2>
+
+          <p className="company-meta">
+            {company.industry} • {company.employees.min}-{company.employees.max} dipendenti
+          </p>
+          <p className="job-location">
+            {location.city}, {location.region}
+          </p>
+        </div>
+        <div className="job-details-hero-accent" />
+      </div>
     </header>
   )
 }
