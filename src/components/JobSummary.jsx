@@ -15,7 +15,7 @@ function JobSummary({
   )} - €${salary.max.toLocaleString('it-IT')}`
 
   return (
-    <>
+    <div className="job-summary">
       <InfoCard title="Informazioni">
         <div className="job-info-grid">
           <JobInfo
@@ -60,7 +60,7 @@ function JobSummary({
           ))}
         </ul>
       </InfoCard>
-    </>
+    </div>
   )
 }
 

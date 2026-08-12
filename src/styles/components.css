@@ -7,7 +7,6 @@
 
 .job-details-header h1 {
   margin: 0;
-  max-width: 800px;
   font-size: 2.5rem;
   font-weight: var(--font-bold);
   line-height: 1.1;
@@ -51,10 +50,6 @@
   opacity: 0.08;
 }
 
-.job-details-heading {
-  max-width: 850px;
-}
-
 .company-industry {
   margin: 0;
   color: var(--color-text-secondary);
@@ -83,7 +78,7 @@
 
 .job-info-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--space-md);
 }
 
@@ -102,7 +97,7 @@
 
 .job-details-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 360px minmax(0, 1fr);
   gap: var(--space-xl);
   align-items: start;
 }
@@ -167,4 +162,11 @@
 
 .back-link:hover {
   color: var(--color-text-primary);
+}
+
+.job-summary,
+.job-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }

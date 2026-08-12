@@ -7,7 +7,8 @@ function JobContent({
   requirements,
 }) {
   return (
-    <>
+    <div className="job-content">
+
       <InfoCard title="Descrizione">
         <p>{description}</p>
       </InfoCard>
@@ -37,7 +38,8 @@ function JobContent({
           ))}
         </ul>
       </InfoCard>
-    </>
+
+    </div>
   )
 }
 
