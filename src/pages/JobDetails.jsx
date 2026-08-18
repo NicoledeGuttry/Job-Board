@@ -3,7 +3,6 @@ import jobs from '../data/jobs'
 import JobHeader from '../components/JobHeader'
 import JobSummary from '../components/JobSummary'
 import JobContent from '../components/JobContent'
-import Navbar from '../components/Navbar'
 import {
   Briefcase,
   Building2,
