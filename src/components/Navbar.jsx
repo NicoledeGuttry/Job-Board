@@ -26,13 +26,10 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="navbar-actions">
-          <Link
-            to="/"
-            className="navbar-search"
-          >
-            Cerca lavoro
-          </Link>
+        <div className="navbar-language">
+          <button type="button">
+            IT
+          </button>
         </div>
       </div>
     </nav>
