@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Job;
+use App\Models\Technology;
 use Illuminate\Database\Seeder;
 
 class JobSeeder extends Seeder
@@ -12,7 +13,7 @@ class JobSeeder extends Seeder
      */
     public function run(): void
     {
-        Job::create([
+        $job = Job::create([
             'company_id' => 1,
             'title' => 'Junior Frontend Developer',
             'city' => 'Roma',
@@ -29,7 +30,18 @@ class JobSeeder extends Seeder
             'description' => 'Entrerai a far parte del team Frontend occupandoti dello sviluppo di interfacce moderne utilizzando React',
         ]);
 
-        Job::create([
+        $job->technologies()->attach(
+            Technology::whereIn('name', [
+                'HTML',
+                'CSS',
+                'JavaScript',
+                'React',
+                'Git',
+            ])->pluck('id')
+        );
+
+
+        $job = Job::create([
             'company_id' => 2,
             'title' => 'FullStack Web Developer',
             'city' => 'Milano',
@@ -46,7 +58,17 @@ class JobSeeder extends Seeder
             'description' => 'Entrerai a far parte di un team strutturato abituato a lavorare in modalità Agile, dando il tuo contributo per il mantenimento di progetti in corso e dello sviluppo dei successivi',
         ]);
 
-        Job::create([
+        $job->technologies()->attach(
+            Technology::whereIn('name', [
+                'Laravel',
+                'React',
+                'MySQL',
+                'PHP',
+            ])->pluck('id')
+        );
+
+
+        $job = Job::create([
             'company_id' => 3,
             'title' => 'Stage Cyber Security Analyst',
             'city' => 'Milano',
@@ -62,5 +84,16 @@ class JobSeeder extends Seeder
             'published_at' => '2026-07-23',
             'description' => 'La risorsa affiancherà i professionisti del team nelle attività di monitoraggio degli eventi di sicurezza, analisi delle vulnerabilità e gestione degli incidenti informatici',
         ]);
+
+        $job->technologies()->attach(
+            Technology::whereIn('name', [
+                'TCP/IP',
+                'DNS',
+                'VPN',
+                'Firewall',
+                'Fondamenti di Cyber Security',
+                'SQL',
+            ])->pluck('id')
+        );
     }
 }
