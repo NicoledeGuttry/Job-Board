@@ -7,6 +7,7 @@ use App\Http\Resources\JobResource;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreJobRequest;
+use App\Http\Requests\UpdateJobRequest;
 
 class JobController extends Controller
 {
@@ -68,5 +69,30 @@ class JobController extends Controller
         return (new JobResource($job))
             ->response()
             ->setStatusCode(201);
+    }
+    public function update(UpdateJobRequest $request, Job $job)
+    {
+        $validated = $request->validated();
+        $technologyIds = $validated['technologies'];
+
+        unset($validated['technologies']);
+
+        $job->update($validated);
+        $job->technologies()->sync($technologyIds);
+        $job->load([
+            'company',
+            'technologies',
+        ]);
+
+        return new JobResource($job);
+    }
+    public function destroy(Job $job)
+    {
+        $job->technologies()->detach();
+        $job->delete();
+
+        return response()->json([
+            'message' => 'Job deleted successfully.',
+        ]);
     }
 }
