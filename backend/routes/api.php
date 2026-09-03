@@ -11,3 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::post('/jobs', [JobController::class, 'store']);

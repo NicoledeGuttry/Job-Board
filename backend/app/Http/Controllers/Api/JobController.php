@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\JobResource;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreJobRequest;
 
 class JobController extends Controller
 {
@@ -49,5 +50,23 @@ class JobController extends Controller
         ]);
 
         return new JobResource($job);
+    }
+    public function store(StoreJobRequest $request)
+    {
+        $validated = $request->validated();
+        $technologyIds = $validated['technologies'];
+
+        unset($validated['technologies']);
+
+        $job = Job::create($validated);
+        $job->technologies()->sync($technologyIds);
+        $job->load([
+            'company',
+            'technologies',
+        ]);
+
+        return (new JobResource($job))
+            ->response()
+            ->setStatusCode(201);
     }
 }
